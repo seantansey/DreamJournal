@@ -10,7 +10,12 @@ let Journal = () => {
 
   let submit = () => {
     console.log(title, dream, tags)
+    //need to add logic to send this to the backend
+    setTitle('')
+    setDream('')
+    setTags('')
   }
+
   return (
     <View style={styles.container}>
       <Header
@@ -25,22 +30,29 @@ let Journal = () => {
         placeholder={' add title...'}
         multiline={true}
         value={title}
+        onChangeText={text => setTitle(text)}
+
       />
       <Text>Dream:</Text>
       <TextInput
         style={styles.journal}
         placeholder={'add your dream...'}
         multiline={true}
+        value={dream}
+        onChangeText={text => setDream(text)}
       />
       <Text>Tags:</Text>
       <TextInput
         style={styles.title}
         placeholder={' add tags (topic, emotions, people)...'}
         multiline={true}
+        value={tags}
+        onChangeText={text => setTags(text)}
       />
       <Button
         title='Submit'
         style={styles.button}
+        onPress={e => submit()}
       />
       </View>
 
