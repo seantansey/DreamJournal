@@ -24,7 +24,6 @@ let Journal = () => {
     }
   }
 
-
   let submit = () => {
     addDream()
     setTitle('')
