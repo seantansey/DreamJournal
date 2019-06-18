@@ -1,16 +1,32 @@
 import React, { useState } from 'react'
 import { TextInput, StyleSheet, View, Text } from 'react-native'
 import { Header, Button } from 'react-native-elements'
+import firebase from 'firebase'
 
 
 let Journal = () => {
   let [title, setTitle] = useState('')
   let [dream, setDream] = useState('')
   let [tags, setTags] = useState('')
+  let userId = 'N25c9lKITZQ7JtPEZSrMX6uC7Ot2'
+
+  let addDream = () => {
+    if (title && dream && tags) {
+      firebase.firestore().collection('Dreams')
+        .add({
+          user: userId,
+          title: title,
+          dream: dream,
+          tags: tags
+        })
+    } else {
+      console.log('Please fill out entire form')
+    }
+  }
+
 
   let submit = () => {
-    console.log(title, dream, tags)
-    //need to add logic to send this to the backend
+    addDream()
     setTitle('')
     setDream('')
     setTags('')
