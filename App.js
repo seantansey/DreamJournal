@@ -1,8 +1,8 @@
-
-
-import React, {Component} from 'react'
+import React, {useState} from 'react'
 import {Platform, StyleSheet, Text, View} from 'react-native'
 import TabNavigator from './components/navigator'
+import firebase from 'firebase'
+import FirebaseApp from './components/fire'
 
 
 let App = () => {
