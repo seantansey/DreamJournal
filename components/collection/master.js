@@ -5,14 +5,16 @@ import Dream from './dream'
 
 const Master = () => {
   const [ showDream, setShowDreamView ] = useState(false)
+  const [ dream, setDream ] = useState('')
 
-  const clickDream = () => {
+  const clickDream = (dreamText='') => {
+    setDream(dreamText)
     setShowDreamView(!showDream)
   }
 
   return (
     <View>
-      {showDream ? <Dream /> : <Collection clickDream={clickDream}/>}
+      {showDream ? <Dream dream={dream} clickDream={clickDream}/> : <Collection clickDream={clickDream}/>}
     </View>
   )
 }

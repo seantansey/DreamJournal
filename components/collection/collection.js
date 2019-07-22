@@ -21,8 +21,8 @@ const Collection = (props) => {
     retrieveCollection('N25c9lKITZQ7JtPEZSrMX6uC7Ot2')
   }, [])
 
-  const showDream = () => {
-    props.clickDream()
+  const showDream = (dreamInfo) => {
+    props.clickDream(dreamInfo)
   }
 
 
@@ -32,7 +32,7 @@ const Collection = (props) => {
         key={i}
         title={info.title}
         style={styles.list}
-        onPress={() => showDream()}
+        onPress={() => showDream(info)}
         chevron
       />
     )
