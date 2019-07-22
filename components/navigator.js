@@ -1,12 +1,12 @@
 import React from 'react'
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation'
 import Journal from './journal/journal'
-import Collection from './collection/collection'
+import Master from './collection/master'
 
 
 const TabNavigator = createBottomTabNavigator({
   Journal: Journal,
-  Collection: Collection
+  Collection: Master
 })
 
 export default createAppContainer(TabNavigator)
