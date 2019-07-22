@@ -4,7 +4,7 @@ import { Header, ListItem } from 'react-native-elements'
 import firebase from 'firebase'
 import 'firebase/firestore'
 
-const Collection = () => {
+const Collection = (props) => {
   const [ dreams, setDreams ] = useState([])
 
   useEffect(() => {
@@ -21,6 +21,10 @@ const Collection = () => {
     retrieveCollection('N25c9lKITZQ7JtPEZSrMX6uC7Ot2')
   }, [])
 
+  const showDream = () => {
+    props.clickDream()
+  }
+
 
   const renderDreams = () => {
     return dreams.map((info, i) =>
@@ -28,6 +32,7 @@ const Collection = () => {
         key={i}
         title={info.title}
         style={styles.list}
+        onPress={() => showDream()}
         chevron
       />
     )
